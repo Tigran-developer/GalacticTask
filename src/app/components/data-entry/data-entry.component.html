@@ -25,9 +25,6 @@
             <mat-error *ngIf="inputForm.controls.income.errors?.['required'] && !inputForm.controls.income.untouched"
                        class="form-field-error">Income field is required
             </mat-error>
-            <button *ngIf="true" matSuffix mat-icon-button aria-label="Clear">
-              <mat-icon>close</mat-icon>
-            </button>
           </mat-form-field>
           <mat-form-field class="form-field">
             <mat-label>Choose a date</mat-label>
@@ -35,8 +32,11 @@
               matInput
               [matDatepicker]="picker"
               formControlName="date">
-            <mat-error *ngIf="inputForm.controls.date.errors?.['required'] && !inputForm.controls.date.untouched">Date
+            <mat-error *ngIf="inputForm.controls.date.errors?.['required'] && !inputForm.controls.date.errors?.['matDatepickerParse'] && !inputForm.controls.date.untouched">Date
               field is required
+            </mat-error>
+            <mat-error *ngIf="inputForm.controls.date.errors?.['matDatepickerParse'] && !inputForm.controls.date.untouched">
+              Please enter correct date
             </mat-error>
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>

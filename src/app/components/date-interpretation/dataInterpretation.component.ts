@@ -10,7 +10,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {provideNativeDateAdapter} from "@angular/material/core";
 import {DataService} from "../../services/data.service";
-import {map, Subject, switchMap, takeUntil, tap} from "rxjs";
+import {Subject, switchMap, takeUntil, tap} from "rxjs";
 import {calculateTotalIncome} from "../../helpers/helper";
 import {BaseChartDirective} from 'ng2-charts';
 import {Chart, ChartConfiguration, registerables} from "chart.js";
@@ -27,7 +27,10 @@ import {Chart, ChartConfiguration, registerables} from "chart.js";
   styleUrls: ['./dataInterpretation.component.scss', '../app.component.scss']
 })
 export class DataInterpretationComponent {
-  public dateRangeForm!: FormGroup
+  public dateRangeForm: FormGroup = new FormGroup({
+    from: new FormControl(null),
+    to: new FormControl(null),
+  });
   public lineChart!: Chart;
   public lineChartConfig!: ChartConfiguration
   public filteredTotalIncome!: number;
@@ -39,10 +42,6 @@ export class DataInterpretationComponent {
   }
 
   ngOnInit() {
-    this.dateRangeForm = new FormGroup({
-      from: new FormControl(null),
-      to: new FormControl(null),
-    });
     this.lineChartConfig = {
       type: 'line',
       data: {
