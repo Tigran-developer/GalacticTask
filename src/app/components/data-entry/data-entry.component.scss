@@ -1,0 +1,37 @@
+.date-entry-ctnr {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.input-card {
+  width: 100%;
+}
+.date-entry-card{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.side-navigation {
+  padding-inline: 35px;
+  padding-block: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-header {
+  padding-bottom: 30px;
+}
+
+.form-field {
+  padding-bottom: 10px;
+}
+
+
+

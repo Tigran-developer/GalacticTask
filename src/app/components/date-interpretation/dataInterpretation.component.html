@@ -1,0 +1,46 @@
+<div class="side-navigation">
+  <a [routerLink]="'/visualisation'">
+    <b>Back to records sheet</b>
+  </a>
+</div>
+<div class="graphs-ctnr">
+  <div class="graphs-cart">
+    <div class="range-cart">
+      <mat-card class="input-card" appearance="outlined">
+        <div class="card-header">
+          <mat-card-header>
+            <mat-card-title>Choose the range</mat-card-title>
+          </mat-card-header>
+        </div>
+        <mat-card-content>
+          <form [formGroup]="dateRangeForm" id="inputForm" class="card-content">
+            <mat-form-field class="form-field">
+              <mat-label>Choose start date</mat-label>
+              <input
+                matInput
+                [matDatepicker]="pickerFrom"
+                formControlName="from">
+              <mat-datepicker-toggle matIconSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+              <mat-datepicker #pickerFrom></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="form-field">
+              <mat-label>Choose end date</mat-label>
+              <input
+                matInput
+                [matDatepicker]="pickerTo"
+                formControlName="to">
+              <mat-datepicker-toggle matIconSuffix [for]="pickerTo"></mat-datepicker-toggle>
+              <mat-datepicker #pickerTo></mat-datepicker>
+            </mat-form-field>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div>
+      <div class="chart-ctnr">
+        <canvas id="line-chart" width="600" height="350">
+        </canvas>
+      </div>
+    </div>
+  </div>
+</div>

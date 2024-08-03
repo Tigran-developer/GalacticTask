@@ -1,0 +1,21 @@
+.table-card {
+  min-width: 500px;
+  justify-content: center;
+}
+
+.table-ctnr {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin: 25px
+}
+.navigation-ctnr{
+  display: flex;
+  justify-content: space-between;
+}
+.side-navigation{
+  padding-inline: 35px;
+  padding-block: 50px;
+  display: flex;
+  align-items: center;
+}
